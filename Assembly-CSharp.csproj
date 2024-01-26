@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/movements.cs" />
+    <Compile Include="Assets/enemy_mov.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
