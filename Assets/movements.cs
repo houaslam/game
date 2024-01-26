@@ -6,7 +6,7 @@ public class movements : MonoBehaviour
 {
 	private Rigidbody2D rb;
 	public float speed = 5;
-	private float jump = 5;
+	private float jump = 10;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D> ();
@@ -14,7 +14,19 @@ public class movements : MonoBehaviour
 
     void Update()
     {
-		rb.velocity = new Vector2 (Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * jump);
-		// rb.AddForce (new Vector2 (Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * jump));
+		rb.velocity = new Vector2 (Input.GetAxisRaw ("Horizontal") * speed, rb.velocity.y);
+		
+		if (Input.GetAxisRaw("Vertical") == 1 && IsGrounded())
+		{
+			rb.velocity = new Vector2(rb.velocity.x, jump);
+		}
+
+
     }
+
+	bool IsGrounded()
+	{
+		return GetComponent<Rigidbody2D>().velocity.y == 0;
+	}
+
 }
