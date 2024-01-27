@@ -9,7 +9,6 @@ public class movements : MonoBehaviour
 	private float jump = 10;
 	private bool lookingRight = true;
 	public Camera cam;
-	private 
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D> ();
